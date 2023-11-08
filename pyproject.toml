@@ -1,10 +1,6 @@
 [tool.pylint.messages_control]
 
 disable = [
-    "broad-except",
-    "consider-using-sys-exit",
-    "cyclic-import",
-    "duplicate-code",
     "missing-function-docstring",
     "missing-final-newline",
     "missing-class-docstring",
@@ -62,4 +58,4 @@ line-length = 100
 [tool.ruff.lint]
 # Add the `line-too-long` rule to the enforced rule set.
 extend-select = ["E501"]
-ignore = ["E741", "PT011"]
+ignore = ["E741", "PT011", "PLR1722", ]
