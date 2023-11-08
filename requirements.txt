@@ -1,0 +1,8 @@
+datasets==2.14.4
+ensure
+pre-commit==2.21.0
+python-dotenv==1.0.0
+scikit-learn==1.2.1
+tensorflow==2.13
+torch==2.0.1
+transformers==4.32.0
