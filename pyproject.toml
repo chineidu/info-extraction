@@ -62,4 +62,4 @@ line-length = 100
 [tool.ruff.lint]
 # Add the `line-too-long` rule to the enforced rule set.
 extend-select = ["E501"]
-ignore = ["E741"]
+ignore = ["E741", "PT011"]
