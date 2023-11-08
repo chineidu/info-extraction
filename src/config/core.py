@@ -7,7 +7,7 @@ from typeguard import typechecked
 # Custom Imports
 import src
 from src import get_console_logger
-from src.config import ConfigVars, ModelConfigSchema
+from src.config import ConfigVars, ModelConfigSchema, TrainingArgsSchema
 
 logger = get_console_logger()
 SRC_ROOT: Path = Path(src.__file__).absolute().parent  # src/
@@ -29,7 +29,7 @@ def load_yaml_file(*, filename: Optional[Path] = None) -> Union[dict[str, Any], 
             return config_dict
 
     except FileNotFoundError as err:
-        logger.error(f'No config file found! {err}')
+        logger.error(f"No config file found! {err}")
         return None
 
 
@@ -41,7 +41,7 @@ def validate_config_file(*, filename: Optional[Path] = None) -> ConfigVars:
     # Validate config
     config_file = ConfigVars(
         model_config_schema=ModelConfigSchema(**config_dict),
-        # path_config=PathConfig(**config_dict),
+        training_args_schema=TrainingArgsSchema(**config_dict),
     )
     return config_file
 

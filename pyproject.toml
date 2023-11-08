@@ -1,6 +1,7 @@
 [tool.pylint.messages_control]
 
 disable = [
+    "broad-except",
     "consider-using-sys-exit",
     "cyclic-import",
     "duplicate-code",
@@ -49,3 +50,16 @@ check_untyped_defs = true
 disallow_any_generics = true
 disallow_untyped_defs = false
 warn_unused_configs = true
+
+[project]
+# Support Python 3.10+.
+requires-python = ">=3.10"
+
+[tool.ruff]
+# Set the maximum line length to 100.
+line-length = 100
+
+[tool.ruff.lint]
+# Add the `line-too-long` rule to the enforced rule set.
+extend-select = ["E501"]
+ignore = ["E741"]
