@@ -38,7 +38,7 @@ def create_drectories() -> None:
 def delete_drectories() -> None:
     """This is used to delete directories."""
     for path in DIRECTORY_PATHS:
-        _create_dir(directory_path=path)
+        delete_dir(directory_path=path)
 
 
 if __name__ == "__main__":

@@ -7,7 +7,7 @@ from typeguard import typechecked
 # Custom Imports
 import src
 from src import get_console_logger
-from src.config import ConfigVars, ModelConfigSchema, TrainingArgsSchema
+from src.config.schema import ConfigVars, ModelConfigSchema, TrainingArgsSchema
 
 logger = get_console_logger()
 SRC_ROOT: Path = Path(src.__file__).absolute().parent  # src/
