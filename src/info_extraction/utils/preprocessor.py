@@ -6,6 +6,7 @@ from transformers import AutoTokenizer
 from typeguard import typechecked
 
 from src import get_console_logger
+
 from src.config import config
 
 # from src.info_extraction import
