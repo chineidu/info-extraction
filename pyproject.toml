@@ -1,15 +1,6 @@
 [tool.pylint.messages_control]
 
 disable = [
-    "missing-function-docstring",
-    "missing-final-newline",
-    "missing-class-docstring",
-    "missing-module-docstring",
-    "missing-timeout",
-    "no-name-in-module",
-    "no-value-for-parameter",
-    "inconsistent-return-statements",
-    "invalid-name",
     "import-error",
     "too-few-public-methods",
     "line-too-long",
@@ -58,4 +49,4 @@ line-length = 100
 [tool.ruff.lint]
 # Add the `line-too-long` rule to the enforced rule set.
 extend-select = ["E501"]
-ignore = ["E741", "PT011", "PLR1722", ]
+ignore = ["E741", "PT011", "PLR1722", "D419", "D101", "D100", "D107", ""]
