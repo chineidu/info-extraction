@@ -1,0 +1,3 @@
+---
+DATA_FILE_NAME: conll2003
+MODEL_CHECKPOINT: bert-base-cased

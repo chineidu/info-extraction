@@ -1,18 +1,22 @@
 from pathlib import Path
 
-from ensure import ensure_annotations
 from setuptools import find_namespace_packages, setup
 
-style_packages = ["black==22.10.0", "isort==5.10.1", "pylint==2.15.10"]
-test_packages = ["pytest>=7.2.0", "pytest-cov==4.0.0"]
+# ============ Update this! ============
+VERSION: str = "0.1.0"
+URL: str = "https://github.com/chineidu/info-extraction"
+PYTHON_REQUIRES: str = ">=3.9"
+SHORT_DESCRIPTION: str = "NLP project to identify and categorize named entities in an input text."
+STYLE_PACKAGES: list[str] = ["black==22.10.0", "isort==5.10.1", "pylint==2.15.10"]
+TEST_PACKAGES: list[str] = ["pytest>=7.2.0", "pytest-cov==4.0.0"]
 
 ROOT_DIR = Path(__file__).absolute().parent
+
 
 with open("README.md", "r") as fh:
     LONG_DESCRIPTION = fh.read()
 
 
-@ensure_annotations
 def list_reqs(*, filename: str = "requirements.txt") -> list[str]:
     """This loads the required packages as a list."""
     with open(ROOT_DIR / filename, encoding="utf-8") as f:
@@ -20,18 +24,18 @@ def list_reqs(*, filename: str = "requirements.txt") -> list[str]:
 
 
 setup(
-    name="info-extraction",
-    version="0.1.0",
-    description="NLP project to identify and categorize named entities in an input text.",
+    name="src",
+    version=VERSION,
+    description=SHORT_DESCRIPTION,
     author="Chinedu Ezeofor",
     author_email="neidue@email.com",
     packages=find_namespace_packages(),
-    url="https://github.com/chineidu/nyc-taxi-price-prediction",
+    url=URL,
     install_requires=list_reqs(),
-    python_requires=">=3.9",
+    python_requires=PYTHON_REQUIRES,
     extras_require={
-        "dev": style_packages + test_packages,
-        "test": test_packages,
+        "dev": STYLE_PACKAGES + TEST_PACKAGES,
+        "test": TEST_PACKAGES,
     },
     include_package_data=True,
     long_description=LONG_DESCRIPTION,

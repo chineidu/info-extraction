@@ -1,8 +1,12 @@
 datasets==2.14.4
-ensure
+ensure==1.0.3
+fsspec==2023.9.2
 pre-commit==2.21.0
+pydantic==1.1
 python-dotenv==1.0.0
+rich
 scikit-learn==1.2.1
 tensorflow==2.13
 torch==2.0.1
 transformers==4.32.0
+typeguard==2.13.3
