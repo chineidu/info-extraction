@@ -24,10 +24,10 @@ run_test:
 	. venv/bin/activate && pytest -svv
 
 run_lint:
-	. venv/bin/activate && black app && isort app
+	. venv/bin/activate && ruff src --fix
 
 run_style:
-	. venv/bin/activate && pylint --recursive=y app && mypy app
+	. venv/bin/activate && mypy src
 
 
 run_checks: run_test run_lint run_style

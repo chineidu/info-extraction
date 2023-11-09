@@ -6,7 +6,6 @@ from transformers import AutoTokenizer
 from typeguard import typechecked
 
 from src import get_console_logger
-
 from src.config import config
 
 # from src.info_extraction import
@@ -29,7 +28,7 @@ def load_tokenizer(model_checkpoint: str) -> Any:
 
 
 @typechecked
-def align_labels_with_tokens(labels: list[int], word_ids: list[Optional[int]]):
+def align_labels_with_tokens(labels: list[int], word_ids: list[Optional[int]]) -> list[int]:
     """This ensures that the new labels aligns with the tokens.
     e.g.
     original tokens: [0, 1, 2, 3, 4]
@@ -69,7 +68,7 @@ TOKENIZER: AutoTokenizer = load_tokenizer(model_checkpoint=model_checkpoint)
 
 
 @typechecked
-def tokenize_and_align_labels(examples: dict[str, Any]):
+def tokenize_and_align_labels(examples: dict[str, Any]) -> dict[str, Any]:
     """This is used to tokenize and align the labels of the dataset."""
     tokenized_inputs: dict[str, Any] = TOKENIZER(
         examples["tokens"], truncation=True, is_split_into_words=True
