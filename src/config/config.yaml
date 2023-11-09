@@ -1,7 +1,10 @@
 ---
 DATA_FILE_NAME: conll2003
 
+AGGREGATION_STRATEGY: simple
 MODEL_CHECKPOINT: bert-base-cased
+TRAINED_MODEL_CHECKPOINT: chineidu/bert-finetuned-ner
+TASK: token-classification
 
 LABEL_NAMES:
   - "O"

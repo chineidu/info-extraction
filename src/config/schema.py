@@ -14,6 +14,9 @@ class ModelConfigSchema(BaseModel):
 
     DATA_FILE_NAME: str
     MODEL_CHECKPOINT: str
+    AGGREGATION_STRATEGY: str
+    TRAINED_MODEL_CHECKPOINT: str
+    TASK: str
     LABEL_NAMES: list[str]
     LABEL_2_ID: dict[str, Any]
     ID_2_LABEL: dict[str, Any]
