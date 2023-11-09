@@ -1,5 +1,5 @@
+import click
 from typing import Any
-
 from datasets import DatasetDict
 from pydantic import BaseModel
 from transformers import (
@@ -104,10 +104,14 @@ class TrainTokenClassificationModel(BaseModel):
             logger.error(f"Error training the transformer model! \n{err}")
 
 
-if __name__ == "__main__":
+@click.command()
+def train_model() -> None:
+    """This trains the named entity recognition model."""
     login_into_hub()
-    model = TrainTokenClassificationModel()
-    model.train_model()
+    ner_model = TrainTokenClassificationModel()
+    ner_model.train_model()
+    click.secho(message=">>>> Training Done!!! <<<<", bold=True, bg="blue", fg="white")
 
-    # Login into Huggingface Hub
-    print("DONE")
+
+if __name__ == "__main__":
+    train_model()
