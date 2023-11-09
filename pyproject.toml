@@ -33,7 +33,7 @@ exclude = [
 [tool.ruff.lint]
 # Add the `line-too-long` rule to the enforced rule set.
 extend-select = ["E501"]
-
+select = ["I001"]
 ignore = ["E741", "PT011", "PLR1722", "D419", "D101", "D100", "D107", "ANN401", "PLC0414"]
 
 # Allow unused variables when underscore-prefixed.

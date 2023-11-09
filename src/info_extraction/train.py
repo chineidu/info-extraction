@@ -1,5 +1,6 @@
-import click
 from typing import Any
+
+import click
 from datasets import DatasetDict
 from pydantic import BaseModel
 from transformers import (
