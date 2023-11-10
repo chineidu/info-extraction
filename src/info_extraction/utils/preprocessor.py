@@ -5,12 +5,12 @@ from datasets import load_metric
 from transformers import AutoTokenizer
 from typeguard import typechecked
 
-from src import get_console_logger
+from src import get_rich_logger
 from src.config import config
 
 # from src.info_extraction import
 
-logger = get_console_logger()
+logger = get_rich_logger()
 model_checkpoint: str = config.model_config_schema.MODEL_CHECKPOINT
 label_names: list[str] = config.model_config_schema.LABEL_NAMES
 

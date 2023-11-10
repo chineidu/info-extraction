@@ -6,10 +6,10 @@ from typeguard import typechecked
 
 # Custom Imports
 import src
-from src import get_console_logger
+from src import get_rich_logger
 from src.config.schema import ConfigVars, ModelConfigSchema, TrainingArgsSchema
 
-logger = get_console_logger()
+logger = get_rich_logger()
 SRC_ROOT: Path = Path(src.__file__).absolute().parent  # src/
 ROOT: Path = SRC_ROOT.parent  # proj/src
 CONFIG_FILEPATH: Path = SRC_ROOT / "config/config.yaml"

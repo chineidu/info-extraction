@@ -2,9 +2,9 @@ from datasets import DatasetDict, load_dataset
 from huggingface_hub import login
 from typeguard import typechecked
 
-from src import HUGGINGFACE_TOKEN, get_console_logger
+from src import HUGGINGFACE_TOKEN, get_rich_logger
 
-logger = get_console_logger()
+logger = get_rich_logger()
 # Load environment variables
 
 

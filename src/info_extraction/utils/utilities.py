@@ -3,10 +3,10 @@ import shutil
 
 from typeguard import typechecked
 
-from src import get_console_logger
+from src import get_rich_logger
 from src.config import config
 
-logger = get_console_logger()
+logger = get_rich_logger()
 
 DIRECTORY_PATHS: list[str] = [config.training_args_schema.OUTPUT_DIR]
 
