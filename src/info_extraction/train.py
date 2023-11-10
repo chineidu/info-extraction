@@ -11,7 +11,7 @@ from transformers import (
 )
 from typeguard import typechecked
 
-from src import get_console_logger
+from src import get_rich_logger
 from src.config import config
 from src.info_extraction import (
     TOKENIZER,
@@ -21,7 +21,7 @@ from src.info_extraction import (
     tokenize_and_align_labels,
 )
 
-logger = get_console_logger()
+logger = get_rich_logger()
 
 
 class TrainTokenClassificationModel(BaseModel):

@@ -3,10 +3,10 @@ from typing import Any, TypeAlias, Union
 from transformers import pipeline
 from typeguard import typechecked
 
-from src import get_console_logger
+from src import get_rich_logger
 from src.config import config
 
-logger = get_console_logger()
+logger = get_rich_logger()
 
 AGGREGATION_STRATEGY: str = config.model_config_schema.AGGREGATION_STRATEGY
 TASK: str = config.model_config_schema.TASK
