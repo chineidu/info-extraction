@@ -1,11 +1,10 @@
 ---
+# MODEL CONFIG
 DATA_FILE_NAME: conll2003
-
 AGGREGATION_STRATEGY: simple
 MODEL_CHECKPOINT: bert-base-cased
 TRAINED_MODEL_CHECKPOINT: chineidu/bert-finetuned-ner
 TASK: token-classification
-
 LABEL_NAMES:
   - "O"
   - "B-PER"
@@ -16,7 +15,6 @@ LABEL_NAMES:
   - "I-LOC"
   - "B-MISC"
   - "I-MISC"
-
 LABEL_2_ID:
   {
     "O": 0,
@@ -29,7 +27,6 @@ LABEL_2_ID:
     "B-MISC": 7,
     "I-MISC": 8,
   }
-
 ID_2_LABEL:
   {
     0: "O",
@@ -49,3 +46,11 @@ STRATEGY: epoch
 LEARNING_RATE: 2e-5
 NUM_EPOCHS: 3
 WEIGHT_DECAY: 0.01
+
+# API CONFIG
+API_VERSION_STR: /api/v1
+API_FULL_VERSION: 1.0.0
+PROJECT_NAME: Token Classification
+
+# ENV CONFIG
+ENV_PATH: .env

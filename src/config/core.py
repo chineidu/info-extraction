@@ -7,12 +7,18 @@ from typeguard import typechecked
 # Custom Imports
 import src
 from src import get_rich_logger
-from src.config.schema import ConfigVars, ModelConfigSchema, TrainingArgsSchema
+from src.config.schema import (
+    APIConfigSchema,
+    ConfigVars,
+    ModelConfigSchema,
+    TrainingArgsSchema,
+)
 
 logger = get_rich_logger()
 SRC_ROOT: Path = Path(src.__file__).absolute().parent  # src/
 ROOT: Path = SRC_ROOT.parent  # proj/src
 CONFIG_FILEPATH: Path = SRC_ROOT / "config/config.yaml"
+ENV_CONFIG_FILEPATH: Path = ROOT / ".env"
 DATA_FILEPATH: Path = ROOT / "data"
 
 
@@ -40,6 +46,7 @@ def validate_config_file(*, filename: Optional[Path] = None) -> ConfigVars:
 
     # Validate config
     config_file = ConfigVars(
+        api_config_schema=APIConfigSchema(**config_dict),
         model_config_schema=ModelConfigSchema(**config_dict),
         training_args_schema=TrainingArgsSchema(**config_dict),
     )
