@@ -17,3 +17,4 @@ tensorflow==2.13
 torch==2.0.1
 transformers==4.32.0
 typeguard==2.13.3
+uvicorn==0.24.0

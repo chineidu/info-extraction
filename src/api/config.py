@@ -15,9 +15,14 @@ class LoggingSettings(BaseSettings):
 
 
 class Settings(BaseSettings):
+    """These settings ca be overriden using environment variables."""
+
     API_VERSION_STR: str = config.api_config_schema.API_VERSION_STR
     API_FULL_VERSION: str = config.api_config_schema.API_FULL_VERSION
+    HOST: str = "0.0.0.0"
+    PORT: int = 8000
     PROJECT_NAME: str = config.api_config_schema.PROJECT_NAME
+    RELOAD: bool = False
     logging: LoggingSettings = LoggingSettings()
 
     # BACKEND_CORS_ORIGINS is a comma-separated list of origins
@@ -37,6 +42,8 @@ class Settings(BaseSettings):
 # This is the config for handling the logs. (Copied)
 # See: https://loguru.readthedocs.io/en/stable/overview.html#entirely-compatible-with-standard-logging  # noqa
 class InterceptHandler(logging.Handler):
+    """Configuration for the custom logger."""
+
     def emit(self, record: logging.LogRecord) -> None:  # pragma: no cover
         # Get corresponding Loguru level if it exists
         try:

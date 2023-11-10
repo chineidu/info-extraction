@@ -1,9 +1,31 @@
-# from fastapi import FastAPI
+from typing import Any
 
-# app: FastAPI = FastAPI(
-#     title=settings.PROJECT_NAME,
-#     description=description,
-#     openapi_url=f"{settings.API_VERSION_STR}/openapi.json",
-#     docs_url=f"/api/{settings().API_VERSION_STR}/docs",
-#     redoc_url=f"/api/{settings().API_VERSION_STR}/redoc",
-# )
+import uvicorn
+from fastapi import FastAPI
+
+from src.api import create_app
+from src.api.config import settings  # type: ignore[attr-defined]
+
+app: FastAPI = create_app()
+
+
+@app.get("/")
+async def index() -> dict[str, Any]:
+    return {
+        "message": f"{settings.PROJECT_NAME!r} app is working",
+        "status": "success!",
+    }
+
+
+def main() -> None:
+    """This is the entrypoint."""
+    uvicorn.run(
+        "app:app",
+        host=settings.HOST,
+        port=settings.PORT,
+        reload=settings.RELOAD,
+    )
+
+
+if __name__ == "__main__":
+    main()
