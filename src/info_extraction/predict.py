@@ -1,3 +1,4 @@
+from functools import lru_cache
 from typing import Any, TypeAlias, Union
 
 from transformers import pipeline
@@ -16,6 +17,7 @@ Predictions: TypeAlias = Union[list[dict[str, Any]], list[list[dict[str, Any]]]]
 
 
 @typechecked
+@lru_cache(maxsize=None)
 def _load_model() -> Any:
     """This is used to load the NER language model."""
     NER_model: pipeline = pipeline(
@@ -28,7 +30,8 @@ def _load_model() -> Any:
 
 
 @typechecked
-def predict(model_input: ModelInput) -> Predictions:
+@lru_cache(maxsize=None)
+def classify_tokens(*, model_input: ModelInput) -> Predictions:
     """This is used to make predictions using the NER language model."""
     token_classifier: pipeline = _load_model()
     logger.info(" >>>> Making prediction <<<<")
@@ -37,9 +40,19 @@ def predict(model_input: ModelInput) -> Predictions:
     return result
 
 
+@typechecked
+def json_format_response(input_value: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """This is used to convert the NumPy values to stings."""
+    return [{k: str(v) for k, v in row.items()} for row in input_value]
+
+
 if __name__ == "__main__":
+    import json
+
+    import numpy as np
     from rich import print
 
+    text: str = "Elon Musk is the CEO of X, Tesla, SpaceX, and other companies."
     texts: list[str] = [
         "Mauricio Pochettino is the head coach of Chelsea FC.",
         "Olumo Rock is a landmark in Abeokuta, Nigeria.",
@@ -54,4 +67,5 @@ if __name__ == "__main__":
             + "conference in San Francisco."
         ),
     ]
-    print(predict(texts))
+    # result = classify_tokens(model_input=text)
+    # print(result)

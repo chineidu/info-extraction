@@ -1,3 +1,4 @@
+from functools import lru_cache
 from pathlib import Path
 from typing import Any, Optional, Union
 
@@ -23,6 +24,7 @@ DATA_FILEPATH: Path = ROOT / "data"
 
 
 @typechecked
+@lru_cache(maxsize=None)
 def load_yaml_file(*, filename: Optional[Path] = None) -> Union[dict[str, Any], None]:
     """This loads the YAML file as a dict."""
     if filename is None:

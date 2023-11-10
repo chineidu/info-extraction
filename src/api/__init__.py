@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from src.api.config import settings  # type: ignore[attr-defined]
+from src.api.v1 import pred_router, root_router
 
 
 def create_app() -> FastAPI:
@@ -22,5 +23,6 @@ def create_app() -> FastAPI:
         )
 
     # Add routers
-    # app.include_router(root_router, prefix="/")
+    app.include_router(root_router)
+    app.include_router(pred_router, prefix=f"{settings.API_VERSION_STR}")
     return app
