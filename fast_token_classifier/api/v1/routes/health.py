@@ -2,8 +2,8 @@ from typing import Any
 
 from fastapi import APIRouter
 
-from src.api.config import settings  # type: ignore[attr-defined]
-from src.api.v1.schemas import IndexSchema
+from fast_token_classifier.api.config import settings  # type: ignore[attr-defined]
+from fast_token_classifier.api.v1.schemas import IndexSchema
 
 root_router: APIRouter = APIRouter()
 

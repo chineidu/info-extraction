@@ -11,9 +11,9 @@ from transformers import (
 )
 from typeguard import typechecked
 
-from src import get_rich_logger
-from src.config import config
-from src.info_extraction import (
+from fast_token_classifier import get_rich_logger
+from fast_token_classifier.config import config
+from fast_token_classifier.info_extraction import (
     TOKENIZER,
     compute_metrics,
     ingest_data,

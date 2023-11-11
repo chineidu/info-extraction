@@ -5,9 +5,9 @@ import numpy as np
 from fastapi import APIRouter
 from rich import print
 
-from src.api.config import settings  # type: ignore[attr-defined]
-from src.api.v1.schemas import InputSchema, PredictionsSchema
-from src.info_extraction.predict import classify_tokens, json_format_response
+from fast_token_classifier.api.config import settings  # type: ignore[attr-defined]
+from fast_token_classifier.api.v1.schemas import InputSchema, PredictionsSchema
+from fast_token_classifier.info_extraction.predict import classify_tokens, json_format_response
 
 pred_router: APIRouter = APIRouter()
 

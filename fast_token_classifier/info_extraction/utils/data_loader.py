@@ -2,8 +2,8 @@ from datasets import DatasetDict, load_dataset
 from huggingface_hub import login
 from typeguard import typechecked
 
-from src import get_rich_logger
-from src.creds import HUGGINGFACE_TOKEN
+from fast_token_classifier import get_rich_logger
+from fast_token_classifier.creds import HUGGINGFACE_TOKEN
 
 logger = get_rich_logger()
 # Load environment variables

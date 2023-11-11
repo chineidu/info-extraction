@@ -4,7 +4,7 @@ from typing import Optional
 from dotenv import load_dotenv
 from typeguard import typechecked
 
-from src.config.core import ENV_CONFIG_FILEPATH
+from fast_token_classifier.config.core import ENV_CONFIG_FILEPATH
 
 load_dotenv(dotenv_path=ENV_CONFIG_FILEPATH)
 

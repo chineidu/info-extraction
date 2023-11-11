@@ -6,9 +6,9 @@ import yaml
 from typeguard import typechecked
 
 # Custom Imports
-import src
-from src import get_rich_logger
-from src.config.schema import (
+import fast_token_classifier
+from fast_token_classifier import get_rich_logger
+from fast_token_classifier.config.schema import (
     APIConfigSchema,
     ConfigVars,
     ModelConfigSchema,
@@ -16,7 +16,7 @@ from src.config.schema import (
 )
 
 logger = get_rich_logger()
-SRC_ROOT: Path = Path(src.__file__).absolute().parent  # src/
+SRC_ROOT: Path = Path(fast_token_classifier.__file__).absolute().parent  # src/
 ROOT: Path = SRC_ROOT.parent  # proj/src
 CONFIG_FILEPATH: Path = SRC_ROOT / "config/config.yaml"
 ENV_CONFIG_FILEPATH: Path = ROOT / ".env"

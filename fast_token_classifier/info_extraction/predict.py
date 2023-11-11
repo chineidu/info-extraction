@@ -4,8 +4,8 @@ from typing import Any, TypeAlias, Union
 from transformers import pipeline
 from typeguard import typechecked
 
-from src import get_rich_logger
-from src.config import config
+from fast_token_classifier import get_rich_logger
+from fast_token_classifier.config import config
 
 logger = get_rich_logger()
 

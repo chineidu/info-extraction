@@ -7,7 +7,7 @@ from types import FrameType
 from loguru import logger
 from pydantic import AnyHttpUrl, BaseSettings
 
-from src.config import config
+from fast_token_classifier.config import config
 
 
 class LoggingSettings(BaseSettings):

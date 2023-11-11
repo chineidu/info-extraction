@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from src.api.config import settings  # type: ignore[attr-defined]
-from src.api.v1 import pred_router, root_router
+from fast_token_classifier.api.config import settings  # type: ignore[attr-defined]
+from fast_token_classifier.api.v1 import pred_router, root_router
 
 
 def create_app() -> FastAPI:

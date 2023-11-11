@@ -1,12 +1,12 @@
-from src.info_extraction.utils.data_loader import ingest_data, login_into_hub
-from src.info_extraction.utils.preprocessor import (
+from fast_token_classifier.info_extraction.utils.data_loader import ingest_data, login_into_hub
+from fast_token_classifier.info_extraction.utils.preprocessor import (
     TOKENIZER,
     align_labels_with_tokens,
     compute_metrics,
     load_tokenizer,
     tokenize_and_align_labels,
 )
-from src.info_extraction.utils.utilities import (
+from fast_token_classifier.info_extraction.utils.utilities import (
     create_drectories,
     delete_drectories,
 )
