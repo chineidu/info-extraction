@@ -24,7 +24,7 @@ def list_reqs(*, filename: str = "requirements.txt") -> list[str]:
 
 
 setup(
-    name="src",
+    name="fast_token_classifier",
     version=VERSION,
     description=SHORT_DESCRIPTION,
     author="Chinedu Ezeofor",
