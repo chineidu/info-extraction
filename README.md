@@ -6,15 +6,25 @@ NLP project to identify and categorize named entities in an input text.
 
 - [INFO-EXTRACTION](#info-extraction)
   - [Table of Content](#table-of-content)
-  - [Build The Package](#build-the-package)
+  - [Build And Publish The Package](#build-and-publish-the-package)
   - [Check HugingFace Cache](#check-hugingface-cache)
 
-## Build The Package
+## Build And Publish The Package
 
 - Build the package by running:
 
 ```sh
+# Install packages required for building and publishing
+python -m pip install build twine
+
+# Build
 python setup.py sdist bdist_wheel
+
+# Verify build
+twine check dist/*
+
+# Upload package
+twine upload dist/* --verbose
 ```
 
 ## Check HugingFace Cache
