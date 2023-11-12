@@ -37,7 +37,7 @@ docker build -t api_service:v1 -f Dockerfile .
 - Create and run the docker containiner by running:
 
 ```sh
-export MODEL_DIR="~/.cache/huggingface/hub"
+export MODEL_DIR="/Users/neidu/.cache/huggingface/hub"
 
 docker run -it -p 8000:8000 -d --rm \
   -v ${MODEL_DIR}:/opt/models:ro \

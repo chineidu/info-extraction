@@ -1,0 +1,26 @@
+include *.txt
+include *.yaml
+include *.yml
+include *.md
+include *.joblib
+include .requirements.txt
+recursive-include ./fast_token_classifier/config
+recursive-include ./fast_token_classifier/info_extraction
+recursive-include ./fast_token_classifier/__init__.py
+recursive-include ./fast_token_classifier/creds.py
+recursive-include ./fast_token_classifier/logger.py
+
+# Uncomment the following lines if you want to include specific files
+# include fast_token_classifier/datasets/sample_train_data.csv
+# include fast_token_classifier/datasets/test.csv
+# include fast_token_classifier/trained_models/*.joblib
+# include fast_token_classifier/config/config.yml
+# recursive-exclude ./fast_token_classifier/api/*
+
+exclude *.log
+exclude *.cfg
+
+recursive-exclude ./fast_token_classifier/frontend/*
+
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]

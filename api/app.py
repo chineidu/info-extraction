@@ -1,8 +1,8 @@
 import uvicorn
 from fastapi import FastAPI
 
-from fast_token_classifier.api import create_app
-from fast_token_classifier.api.config import settings  # type: ignore[attr-defined]
+from api import create_app
+from api.config import settings  # type: ignore[attr-defined]
 
 app: FastAPI = create_app()
 
