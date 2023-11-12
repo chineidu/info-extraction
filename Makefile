@@ -1,4 +1,4 @@
-.PHONY: help setup_venv delete_directories run_api run_test run_lint run_style run_test run_checks
+.PHONY: help setup_venv run_api run_test run_integration_test run_lint run_style run_test run_checks
 
 help:
 	@echo "Commands:"
@@ -15,11 +15,11 @@ setup_venv:
 	&& python3 -m pip install --upgrade pip \
 	&& python3 -m pip install -e ".[dev]"
 
-delete_directories:
-	. venv/bin/activate && python3 fast_token_classifier/info_extraction/utils/utilities.py
-
 run_api:
 	. venv/bin/activate && python3 fast_token_classifier/api/app.py
+
+run_integration_test:
+	. venv/bin/activate && pytest -svv -m integration
 
 run_test:
 	. venv/bin/activate && pytest -svv

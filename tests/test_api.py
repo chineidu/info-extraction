@@ -13,10 +13,30 @@ HOST: str = settings.HOST
 PORT: int = settings.PORT
 
 
+def test_health_check(client: TestClient) -> None:
+    """This checkes the health of the API."""
+    # Given
+    expected: dict[str, Any] = {
+        "message": f"{settings.PROJECT_NAME!r} app is working",
+        "status": "success!",
+        "status_code": 200,
+    }
+    URL: str = f"http://{HOST}:{PORT}/health"
+
+    # When
+    response = client.get(URL)
+    result: dict[str, Any] = response.json()
+
+    # Then
+    assert response.status_code == expected.get("status_code")
+    assert result.get("message") == expected.get("message")
+    assert result.get("status") == expected.get("status")
+
+
 # ==== `Mark` the test as an `integration test` ====
 @mark.integration
 def test_token_classification(client: TestClient, user_input_1: InputSchema) -> None:
-    """This is used to test the predict enpoint."""
+    """This is used to test the predict endpoint."""
     # Given
     expected: dict[str, int] = {
         "status_code": 200,

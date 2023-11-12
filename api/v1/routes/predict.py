@@ -22,6 +22,5 @@ pred_router: APIRouter = APIRouter()
 async def get_predictions(text: InputSchema) -> PredictionsSchema:
     """This is used to classify the tokens."""
     result = classify_tokens(model_input=text.data)
-    print(result)
 
     return {"result": json_format_response(input_value=result)}  # type: ignore[return-value]

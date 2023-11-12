@@ -47,11 +47,6 @@ def json_format_response(input_value: list[dict[str, Any]]) -> list[dict[str, An
 
 
 if __name__ == "__main__":
-    import json
-
-    import numpy as np
-    from rich import print
-
     text: str = "Elon Musk is the CEO of X, Tesla, SpaceX, and other companies."
     texts: list[str] = [
         "Mauricio Pochettino is the head coach of Chelsea FC.",

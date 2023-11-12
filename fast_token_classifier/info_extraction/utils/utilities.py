@@ -20,7 +20,7 @@ def _create_dir(*, directory_path: str) -> None:
 
 
 @typechecked
-def delete_dir(directory_path) -> None:
+def _delete_dir(*, directory_path) -> None:
     """This is used to delete a directory."""
     if os.path.exists(directory_path):
         shutil.rmtree(directory_path)
@@ -38,7 +38,7 @@ def create_drectories() -> None:
 def delete_drectories() -> None:
     """This is used to delete directories."""
     for path in DIRECTORY_PATHS:
-        delete_dir(directory_path=path)
+        _delete_dir(directory_path=path)
 
 
 if __name__ == "__main__":
