@@ -6,8 +6,19 @@ NLP project to identify and categorize named entities in an input text.
 
 - [INFO-EXTRACTION](#info-extraction)
   - [Table of Content](#table-of-content)
+  - [Setup Package](#setup-package)
   - [Build And Publish The Package](#build-and-publish-the-package)
   - [Check HugingFace Cache](#check-hugingface-cache)
+  - [Run Tests](#run-tests)
+  - [Start API](#start-api)
+
+## Setup Package
+
+- To setup the package locally, run:
+
+```sh
+make setup_venv
+```
 
 ## Build And Publish The Package
 
@@ -33,4 +44,20 @@ twine upload dist/* --verbose
 
 ```sh
 huggingface-cli scan-cache -v
+```
+
+## Run Tests
+
+- For unit and integration tests, run:
+
+```sh
+make run_test
+```
+
+## Start API
+
+- To start the API, run:
+
+```sh
+make run_api
 ```

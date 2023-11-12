@@ -1,3 +1,4 @@
+# For building and publishing to PyPi
 [build-system]
 requires      = ["setuptools>=68.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
@@ -54,3 +55,11 @@ skip-magic-trailing-comma = false
 
 # Like Black, automatically detect the appropriate line ending.
 line-ending = "auto"
+
+# Pytest
+[tool.pytest.ini_options]
+addopts = "--strict-markers" # Ensure that the markers are defined
+markers = [
+            "integration: Run the integration tests.",
+            "differential: Run the integration tests."
+            ]

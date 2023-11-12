@@ -1,9 +1,9 @@
-.PHONY: help setup_venv delete_directories run_app run_test run_lint run_style run_test run_checks
+.PHONY: help setup_venv delete_directories run_api run_test run_lint run_style run_test run_checks
 
 help:
 	@echo "Commands:"
 	@echo "\tsetup_venv:       creates a virtual environment."
-	@echo "\trun_app:          runs the app."
+	@echo "\trun_api:          runs the app."
 	@echo "\trun_test:         runs the tests."
 	@echo "\trun_lint:         runs the linting."
 	@echo "\trun_style:        runs style and type formatting."
@@ -18,7 +18,7 @@ setup_venv:
 delete_directories:
 	. venv/bin/activate && python3 fast_token_classifier/info_extraction/utils/utilities.py
 
-run_app:
+run_api:
 	. venv/bin/activate && python3 fast_token_classifier/api/app.py
 
 run_test:
