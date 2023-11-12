@@ -8,6 +8,7 @@ NLP project to identify and categorize named entities in an input text.
   - [Table of Content](#table-of-content)
   - [Setup Package](#setup-package)
     - [IMPORTANT STEP](#important-step)
+    - [List Available Commands](#list-available-commands)
   - [Build And Publish The Package](#build-and-publish-the-package)
   - [Check HugingFace Cache](#check-hugingface-cache)
   - [Run Tests](#run-tests)
@@ -23,6 +24,14 @@ NLP project to identify and categorize named entities in an input text.
 make setup_venv
 ```
 
+### List Available Commands
+
+- To list all the available commands, run:
+
+```sh
+make help
+```
+
 ## Build And Publish The Package
 
 - Build the package by running:
@@ -32,6 +41,7 @@ make setup_venv
 python -m pip install build twine
 
 # Build
+python setup.py clean --all
 python setup.py sdist bdist_wheel
 
 # Verify build

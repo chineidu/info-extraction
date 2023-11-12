@@ -3,7 +3,7 @@ from pathlib import Path
 from setuptools import find_namespace_packages, setup
 
 # ============ Update this! ============
-VERSION: str = "0.2.2"
+VERSION: str = "0.2.3"
 URL: str = "https://github.com/chineidu/info-extraction"
 PYTHON_REQUIRES: str = ">=3.9"
 SHORT_DESCRIPTION: str = "NLP project to identify and categorize named entities in an input text."
