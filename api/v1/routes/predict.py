@@ -5,7 +5,7 @@ import numpy as np
 from fastapi import APIRouter
 from rich import print
 
-from api.config import settings  # type: ignore[attr-defined]
+from api.api_config import settings  # type: ignore[attr-defined]
 from api.v1.schemas import InputSchema, PredictionsSchema
 from fast_token_classifier.info_extraction.predict import classify_tokens, json_format_response
 

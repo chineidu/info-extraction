@@ -1,20 +1,14 @@
-# Stage 1: Build dependencies
-FROM python:3.10-slim-buster AS builder
+# Base image
+FROM python:3.10-slim-buster
 
+# Create working directory
 WORKDIR /opt
 
+# Copy and install dependencies. This should be here to avoid
+# re-installing the packages when there's a minor change in the Docker image.
 COPY ["./requirements.txt", "./"]
 RUN pip install --no-cache-dir -r requirements.txt
 
-
-# Stage 2: Create final image
-FROM python:3.10-slim-buster
-
-WORKDIR /opt
-
-# Copy only the necessary files from the previous stage
-COPY --from=builder /usr/local/lib/python3.10/site-packages /usr/local/lib/python3.10/site-packages
-COPY --from=builder /opt .
 
 # Copy source code
 COPY ["./", "./"]

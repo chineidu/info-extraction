@@ -1,4 +1,4 @@
-from api.v1.schemas.api_schema import (
+from api.v1.schemas.in_out_schema import (
     IndexSchema,
     InputSchema,
     PredictionsSchema,

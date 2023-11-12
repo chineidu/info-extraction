@@ -2,7 +2,7 @@ import uvicorn
 from fastapi import FastAPI
 
 from api import create_app
-from api.config import settings  # type: ignore[attr-defined]
+from api.api_config import settings  # type: ignore[attr-defined]
 
 app: FastAPI = create_app()
 

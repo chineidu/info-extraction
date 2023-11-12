@@ -9,14 +9,6 @@ from typing import Any
 from pydantic import BaseModel
 
 
-class APIConfigSchema(BaseModel):
-    """API Configurations."""
-
-    API_VERSION_STR: str
-    API_FULL_VERSION: str
-    PROJECT_NAME: str
-
-
 class ModelConfigSchema(BaseModel):
     """All model variables."""
 
@@ -44,6 +36,5 @@ class TrainingArgsSchema(BaseModel):
 class ConfigVars(BaseModel):
     """Main configuration object."""
 
-    api_config_schema: APIConfigSchema
     model_config_schema: ModelConfigSchema
     training_args_schema: TrainingArgsSchema

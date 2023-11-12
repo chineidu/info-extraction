@@ -1,8 +1,14 @@
+import logging
+from typing import Any, Optional
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from rich.logging import RichHandler
+from typeguard import typechecked
 
-from api.config import settings  # type: ignore[attr-defined]
-from api.v1 import pred_router, root_router
+from api.api_config import settings  # type: ignore[attr-defined]
+from api.v1.routes.health import root_router
+from api.v1.routes.predict import pred_router
 
 
 def create_app() -> FastAPI:

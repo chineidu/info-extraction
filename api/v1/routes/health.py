@@ -2,7 +2,7 @@ from typing import Any
 
 from fastapi import APIRouter
 
-from api.config import settings  # type: ignore[attr-defined]
+from api.api_config import settings  # type: ignore[attr-defined]
 from api.v1.schemas import IndexSchema
 
 root_router: APIRouter = APIRouter()

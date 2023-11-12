@@ -1,35 +1,15 @@
-from typing import Any
-
 from pydantic import BaseModel
 
 
-class IndexSchema(BaseModel):
-    """This is the schema for the index response."""
+class APIConfigSchema(BaseModel):
+    """API Configurations."""
 
-    message: str
-    status: str
-
-
-class InputSchema(BaseModel):
-    """Schema for the model input."""
-
-    data: str
-
-    class Config:
-        """Sample Payload"""
-
-        schema_extra = {
-            "example": {"data": "My name is Chineidu and I work at Indicina in Lagos, Nigeria."}
-        }
+    API_VERSION_STR: str
+    API_FULL_VERSION: str
+    PROJECT_NAME: str
 
 
-class PredOut(BaseModel):
-    entity_group: str
-    score: float
-    word: str
-    start: int
-    end: int
+class ConfigVars(BaseModel):
+    """Main configuration object."""
 
-
-class PredictionsSchema(BaseModel):
-    result: list[PredOut]
+    api_config_schema: APIConfigSchema
