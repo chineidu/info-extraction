@@ -5,6 +5,7 @@ ensure==1.0.3
 fastapi==0.90.0
 fast-token-classifier>=0.1.0,<=0.3.0
 fsspec==2023.9.2
+httpx==0.25.1
 loguru>=0.7.0
 numpy==1.24.3
 pre-commit==2.21.0
