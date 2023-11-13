@@ -1,7 +1,7 @@
 datasets==2.14.4
 ensure==1.0.3
 fastapi==0.90.0
-fast-token-classifier==0.2.2
+fast-token-classifier==0.2.3
 fsspec==2023.9.2
 httpx==0.25.1
 loguru>=0.7.0
