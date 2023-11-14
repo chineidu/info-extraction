@@ -3,12 +3,11 @@
 
 help:
 	@echo "Commands:"
-	@echo "\tsetup_venv:       creates a virtual environment (REQUIRED)."
-	@echo "\trun_api:          runs the app."
-	@echo "\trun_test:         runs the tests."
-	@echo "\trun_lint:         runs the linting."
-	@echo "\trun_style:        runs style and type formatting."
-	@echo "\trun_checks:       runs tests and code quality (RECOMMENDEED)."
+	@echo "\tsetup_venv:          creates a virtual environment (REQUIRED)."
+	@echo "\trun_api:             runs the app."
+	@echo "\trun_test:            runs the tests."
+	@echo "\trun_lint_n_style:    runs linting, style and type formatting."
+	@echo "\trun_checks:          runs tests and code quality (RECOMMENDEED)."
 	@echo
 
 setup_venv:
@@ -20,21 +19,24 @@ run_test: setup_venv
 	poetry run ${MAKE} __test__
 
 __test__:
+	@echo
+	@echo ">>>> Running tests. <<<<"
 	pytest -svv -W ignore
 
 run_api:
 	poetry run ${MAKE} __run_api__
 
 __run_api__:
+	@echo
+	@echo ">>>> Starting the API. <<<<"
 	python3 api/app.py
 
 run_lint_n_style:
 	poetry run ${MAKE} __run_lint_n_style__
 
 __run_lint_n_style__:
+	@echo
+	@echo ">>>> Running linting. <<<<"
 	ruff api --fix && mypy api
 
-
-run_checks: run_test run_lint_style
-	@echo
-	@echo ">>>> Running tests and linting. <<<<"
+run_checks: run_test run_lint_n_style

@@ -47,8 +47,8 @@ def validate_config_file(*, filename: Optional[Path] = None) -> ConfigVars:
 
     # Validate config
     config_file = ConfigVars(
-        model_config_schema=ModelConfigSchema(**config_dict),
-        training_args_schema=TrainingArgsSchema(**config_dict),
+        model_config_schema=ModelConfigSchema(**config_dict),  # type: ignore[arg-type]
+        training_args_schema=TrainingArgsSchema(**config_dict),  # type: ignore[arg-type]
     )
     return config_file
 
