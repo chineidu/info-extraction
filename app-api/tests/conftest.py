@@ -1,7 +1,7 @@
+# type: ignore
 """This module contains the Pytest fixtures."""
-from typing import Any, Generator
 
-"""This midule is used for setting up Pytest fixtures."""
+from typing import Any, Generator
 
 import pytest
 from fastapi.testclient import TestClient

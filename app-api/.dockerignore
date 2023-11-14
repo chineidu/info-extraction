@@ -92,5 +92,10 @@ venv/
 */*/*.swp
 */*/*/*.swp
 
+# Custom
 README.md
 readme.md
+tests/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/

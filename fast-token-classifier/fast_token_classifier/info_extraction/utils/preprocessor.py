@@ -77,7 +77,7 @@ def tokenize_and_align_labels(examples: dict[str, Any]) -> dict[str, Any]:
     new_labels: list[list[int]] = []
     for i, labels in enumerate(all_labels):
         word_ids = tokenized_inputs.word_ids(i)  # type: ignore[attr-defined]
-        new_labels.append(align_labels_with_tokens(labels, word_ids))
+        new_labels.append(align_labels_with_tokens(labels, word_ids))  # type: ignore[arg-type]
 
     # Create a new label!
     tokenized_inputs["labels"] = new_labels

@@ -1,6 +1,46 @@
-# Used for pre-commit config
+[tool.poetry]
+name = "app-api"
+version = "0.1.2"
+description = ""
+license = "MIT"
+authors = ["Chinedu Ezeofor <sneidue@email.com>"]
+packages = [{ include = "api" }]
+
+[tool.poetry.dependencies]
+python = "==3.10.8"
+datasets = "^2.14.4"
+ensure = "^1.0.3"
+fastapi = "^0.90.0"
+fast-token-classifier = ">= 0.2.6"
+fsspec = "^2023.9.2"
+httpx = "^0.25.1"
+loguru = "^0.7.0"
+numpy = "^1.22.3"
+pydantic = "<=1.10.13"
+python-dotenv = "^1.0.0"
+rich = "^13.6.0"
+scikit-learn = "^1.2.1"
+scipy = "== 1.11.3"
+typeguard = "^2.13.3"
+uvicorn = "^0.24.0"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.7.0"
+mypy-extensions = "^1.0.0"
+ruff = "^0.1.4"
+types-PyYAML = "^6.0.12.12"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.2.0"
+pytest-cov = "== 4.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
 [tool.mypy]
-mypy_path = ["fast_token_classifier"]
+mypy_path = ["api"]
 python_version = "3.10"
 show_error_context = true
 ignore_missing_imports = true

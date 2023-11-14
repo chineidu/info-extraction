@@ -10,6 +10,8 @@ NLP project to identify and categorize named entities in an input text.
     - [IMPORTANT STEP](#important-step)
     - [List Available Commands](#list-available-commands)
   - [Build And Publish The Package](#build-and-publish-the-package)
+    - [Using Setuptools](#using-setuptools)
+    - [Using Poetry](#using-poetry)
   - [Check HugingFace Cache](#check-hugingface-cache)
   - [Run Tests](#run-tests)
   - [Start API](#start-api)
@@ -34,6 +36,8 @@ make help
 
 ## Build And Publish The Package
 
+### Using Setuptools
+
 - Build the package by running:
 
 ```sh
@@ -49,6 +53,22 @@ twine check dist/*
 
 # Upload package
 twine upload dist/* --verbose
+```
+
+### Using Poetry
+
+- Build the package using Poetry by running:
+
+```sh
+# Install packages required for building and publishing
+pip install --no-cache poetry==1.4.2
+poetry lock "--no-update" && poetry install --no-interaction
+
+export PYPI_TOKEN="your_pypi_token"
+poetry config pypi-token.pypi ${PYPI_TOKEN}
+
+# Build and upload package
+poetry publish --build
 ```
 
 ## Check HugingFace Cache

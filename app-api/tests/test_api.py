@@ -1,3 +1,4 @@
+# type: ignore
 """This module contains the test(s) for the endpoint(s)."""
 
 from typing import Any
@@ -5,7 +6,7 @@ from typing import Any
 from fastapi.testclient import TestClient
 from pytest import mark
 
-from api.api_config import settings
+from api.api_config import settings  # type: ignore[attr-defined]
 from api.v1.schemas import InputSchema
 
 API_VERSION_STR: str = settings.API_VERSION_STR
