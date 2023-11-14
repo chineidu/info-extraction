@@ -482,14 +482,14 @@ test = ["pytest (>=6)"]
 
 [[package]]
 name = "fast-token-classifier"
-version = "0.2.5"
+version = "0.2.6"
 description = ""
 category = "main"
 optional = false
 python-versions = "==3.10.8"
 files = [
-    {file = "fast_token_classifier-0.2.5-py3-none-any.whl", hash = "sha256:bb9748d49cc22febe30928b47df46c4194f2d36f9c4dae26f2a397cb10520c5a"},
-    {file = "fast_token_classifier-0.2.5.tar.gz", hash = "sha256:9f11bc282c74eced30a79465ae9fe9711b0f40acf5fa8ea19e3ca2d9813ce7b7"},
+    {file = "fast_token_classifier-0.2.6-py3-none-any.whl", hash = "sha256:f6db6783b2f2d7039f41069c2b89d19905e21316329d8863c7dd083fb6f27129"},
+    {file = "fast_token_classifier-0.2.6.tar.gz", hash = "sha256:884ddfc5bf61ae48d5edfab75c493dc34df167a44550ccf18ef5ff0ccf126e1c"},
 ]
 
 [package.dependencies]
@@ -506,7 +506,6 @@ pre-commit = ">=2.21.0,<3.0.0"
 pydantic = "<=1.10.13"
 python-dotenv = ">=1.0.0,<2.0.0"
 rich = ">=13.6.0,<14.0.0"
-ruff = ">=0.1.4,<0.2.0"
 scikit-learn = ">=1.2.1,<2.0.0"
 scipy = "1.11.3"
 seqeval = ">=1.2.2,<2.0.0"
@@ -2018,7 +2017,7 @@ pyasn1 = ">=0.1.3"
 name = "ruff"
 version = "0.1.5"
 description = "An extremely fast Python linter and code formatter, written in Rust."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -3159,4 +3158,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "==3.10.8"
-content-hash = "930ef055f23bbe521d32e60ce82da0053af918c7c4786f638b502d5157c13946"
+content-hash = "33be47dbd735c9df24db3b18674b068f22ed769bc02eb71e963fd669ce6d3f9a"

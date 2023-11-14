@@ -17,5 +17,8 @@ def main() -> None:
     )
 
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+# main()
+
+# CLI
+# uvicorn api.app:app --port 8008 --host "0.0.0.0"

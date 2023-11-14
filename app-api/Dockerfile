@@ -1,29 +1,52 @@
 # Base image
-FROM python:3.10.8
+FROM python:3.10.8 as base
+# install gcc
+RUN apt-get update \
+	&& apt-get -y install gcc \
+	&& rm -rf /var/lib/apt/lists/*
 
-# Create working directory
-WORKDIR /opt/src
+# DEVELOPMENT
+FROM base as development
+ENV \
+	PIP_NO_CACHE_DIR=off \
+	PIP_DISABLE_PIP_VERSION_CHECK=on \
+	PYTHONDONTWRITEBYTECODE=1 \
+	PYTHONUNBUFFERED=1 \
+	VIRTUAL_ENV=/api-venv
+ENV \
+	POETRY_VIRTUALENVS_CREATE=false \
+	POETRY_VIRTUALENVS_IN_PROJECT=false \
+	POETRY_NO_INTERACTION=1 \
+	POETRY_VERSION=1.4.2
 
-# Install Poetry
-RUN apt-get update && apt-get upgrade -y
-RUN pip install --no-cache -U pip
-RUN pip install --no-cache poetry==1.4.2
+# Install poetry
+RUN pip install "poetry==$POETRY_VERSION"
+# Copy requirements
+COPY poetry.lock pyproject.toml ./
 
-# Configuring poetry.
-RUN poetry config virtualenvs.create false
+# add venv to path
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
-# Copy and install dependencies. This should be here to avoid
-# re-installing the packages when there's a minor change in the Docker image.
-COPY ["./app-api/pyproject.toml", "./opt/src"]
-COPY ["./app-api/poetry.lock", "./opt/src"]
-RUN poetry install --no-interaction --without dev --no-root
+# Install python packages
+RUN python -m venv $VIRTUAL_ENV \
+	&& . $VIRTUAL_ENV/bin/activate \
+	&& poetry install --no-root
 
-# Copy source code
-COPY ["./app-api", "./"]
+# BUILDER
+FROM development as builder
+WORKDIR /app
+COPY . .
+RUN poetry install --without dev
+# export build
+RUN poetry build --format wheel
 
-# Give access to run the run.sh script.
-RUN chmod +x run.sh
+# PRODUCTION
+FROM base as production
+WORKDIR /app
+COPY --from=builder /app/dist/*.whl ./
+RUN pip install ./*.whl
+RUN rm ./*.whl
 
 # Entry point
-CMD ["python3", "api/app.py", "--host", "0.0.0.0"]
-# CMD ["bash", "./run.sh"]
+# CMD ["poetry", "run", "python3", "api/app.py", "--host", "0.0.0.0"]
+CMD ["uvicorn", "api.app:app", "--host", "0.0.0.0", "--port", "8005"]
