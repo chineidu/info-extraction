@@ -16,14 +16,14 @@ RUN poetry config virtualenvs.create false
 # re-installing the packages when there's a minor change in the Docker image.
 COPY ["./app-api/pyproject.toml", "./opt/src"]
 COPY ["./app-api/poetry.lock", "./opt/src"]
-RUN poetry lock "--no-update" && poetry install --no-interaction --no-root -vvv
+RUN poetry install --no-interaction --without dev --no-root
 
 # Copy source code
-COPY ["./app-api", "./opt/src"]
+COPY ["./app-api", "./"]
 
 # Give access to run the run.sh script.
 RUN chmod +x run.sh
 
 # Entry point
-# CMD ["python3", "app.py", "--host", "0.0.0.0"]
-CMD ["bash", "./run.sh"]
+CMD ["python3", "api/app.py", "--host", "0.0.0.0"]
+# CMD ["bash", "./run.sh"]

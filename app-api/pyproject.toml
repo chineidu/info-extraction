@@ -12,7 +12,7 @@ python = "==3.10.8"
 datasets = "^2.14.4"
 ensure = "^1.0.3"
 fastapi = "^0.90.0"
-fast-token-classifier = "==0.2.5"
+fast-token-classifier = "^0.2.7"
 fsspec = "^2023.9.2"
 httpx = "^0.25.1"
 loguru = "^0.7.0"
@@ -22,7 +22,6 @@ python-dotenv = "^1.0.0"
 rich = "^13.6.0"
 scikit-learn = "^1.2.1"
 scipy = "== 1.11.3"
-transformers = "^4.32.0"
 typeguard = "^2.13.3"
 uvicorn = "^0.24.0"
 
@@ -74,7 +73,7 @@ exclude = [
 extend-select = ["E501"]
 select = [
     "I001", "ANN201", "ANN202", "S107", "PIE796", "T201", "PYI009",
-    "PYI012", "PYI026", "RET505", "SIM115",
+    "PYI012", "PYI026", "RET505", "SIM115", "F401",
     ]
 ignore = ["E741", "PT011", "PLR1722", "D419", "D101", "D100", "D107", "ANN401", "PLC0414"]
 
