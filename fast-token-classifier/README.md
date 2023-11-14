@@ -14,7 +14,6 @@ NLP project to identify and categorize named entities in an input text.
     - [Using Poetry](#using-poetry)
   - [Check HugingFace Cache](#check-hugingface-cache)
   - [Run Tests](#run-tests)
-  - [Start API](#start-api)
 
 ## Setup Package
 
@@ -81,20 +80,9 @@ huggingface-cli scan-cache -v
 
 ## Run Tests
 
-- For unit and integration tests, run:
+- For unit tests, run:
 
 ```sh
-# Integration test
-make run_integration_test
-
 # All tests
 make run_test
-```
-
-## Start API
-
-- To start the API, run:
-
-```sh
-make run_api
 ```
