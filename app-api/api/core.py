@@ -40,7 +40,7 @@ def validate_config_file(*, filename: Optional[Path] = None) -> ConfigVars:
     config_dict = load_yaml_file(filename=filename)
 
     # Validate config
-    config_file = ConfigVars(api_config_schema=APIConfigSchema(**config_dict))
+    config_file = ConfigVars(api_config_schema=APIConfigSchema(**config_dict))  # type: ignore[arg-type]
     return config_file
 
 
