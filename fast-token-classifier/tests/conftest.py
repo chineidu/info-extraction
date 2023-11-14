@@ -1,13 +1,11 @@
-"""This module contains the Pytest fixtures."""
+# type: ignore
+"""This module is used for setting up Pytest fixtures."""
 from typing import Any, Generator
 
-"""This midule is used for setting up Pytest fixtures."""
-
 import pytest
-from fastapi.testclient import TestClient
-
 from api.app import app
 from api.v1.schemas import InputSchema
+from fastapi.testclient import TestClient
 
 
 @pytest.fixture()

@@ -1,3 +1,4 @@
+# type: ignore
 """This module contains the test(s) for the utility function(s)."""
 
 import os

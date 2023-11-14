@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fast_token_classifier"
-version = "0.2.4"
+version = "0.2.5"
 description = ""
 license = "MIT"
 authors = ["Chinedu Ezeofor <sneidue@email.com>"]
@@ -26,9 +26,15 @@ ruff = "^0.1.4"
 seqeval = "^1.2.2"
 scikit-learn = "^1.2.1"
 scipy = "== 1.11.3"
+tensorflow = "^2.13"
 transformers = "^4.32.0"
 typeguard = "^2.13.3"
 uvicorn = "^0.24.0"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.7.0"
+mypy-extensions = "^1.0.0"
+types-PyYAML = "^6.0.12.12"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.2.0"
