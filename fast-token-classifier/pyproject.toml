@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fast-token-classifier"
-version = "0.2.7"
+version = "0.2.8"
 description = ""
 license = "MIT"
 authors = ["Chinedu Ezeofor <sneidue@email.com>"]
