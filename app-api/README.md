@@ -37,9 +37,8 @@ docker build -t api_service:v1 -f Dockerfile .
 - Create and run the docker containiner by running:
 
 ```sh
-export MODEL_DIR="${HOME}.cache/huggingface/hub"
+export MODEL_DIR="/Users/neidu/Desktop/Projects/Personal/My_Projects/info-extraction/saved_model"
 
-docker run -it -p 8000:8000 -d --rm \
-  -v ${MODEL_DIR}:/opt/models:ro \
-  --name pred_app api_service:v1
+docker run -it -p 8000:8005 --rm \
+  -v ${MODEL_DIR}:/opt/saved_model:ro --name pred_app api_service:v2
 ```

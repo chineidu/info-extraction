@@ -482,14 +482,14 @@ test = ["pytest (>=6)"]
 
 [[package]]
 name = "fast-token-classifier"
-version = "0.2.6"
+version = "0.2.8"
 description = ""
 category = "main"
 optional = false
 python-versions = "==3.10.8"
 files = [
-    {file = "fast_token_classifier-0.2.6-py3-none-any.whl", hash = "sha256:f6db6783b2f2d7039f41069c2b89d19905e21316329d8863c7dd083fb6f27129"},
-    {file = "fast_token_classifier-0.2.6.tar.gz", hash = "sha256:884ddfc5bf61ae48d5edfab75c493dc34df167a44550ccf18ef5ff0ccf126e1c"},
+    {file = "fast_token_classifier-0.2.8-py3-none-any.whl", hash = "sha256:0a05674f513aa3ffb875e4ad26156788452d8f23a013fa7a4608baeae53a741c"},
+    {file = "fast_token_classifier-0.2.8.tar.gz", hash = "sha256:4375b138a76246761e4cb27f3231a205bff4a0a577d9881f3bae2d0d67d90c4c"},
 ]
 
 [package.dependencies]
@@ -3158,4 +3158,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "==3.10.8"
-content-hash = "33be47dbd735c9df24db3b18674b068f22ed769bc02eb71e963fd669ce6d3f9a"
+content-hash = "4e85ec4aeedd977cd65f11e18cbe36394f6dff7a4edd0a0a132e051862e26764"

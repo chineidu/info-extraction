@@ -25,6 +25,7 @@ def _load_model() -> Any:
         model=LOCALLY_SAVED_MODEL,
         aggregation_strategy=AGGREGATION_STRATEGY,
     )
+    logger.info(f"Model path: {LOCALLY_SAVED_MODEL}!")
     logger.info("Model successfully loaded!")
     return NER_model
 

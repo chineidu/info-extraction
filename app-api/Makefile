@@ -29,7 +29,7 @@ run_api:
 __run_api__:
 	@echo
 	@echo ">>>> Starting the API. <<<<"
-	python3 api/app.py
+	uvicorn api.app:app --port 8000 --host "0.0.0.0"
 
 run_lint_n_style:
 	poetry run ${MAKE} __run_lint_n_style__

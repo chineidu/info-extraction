@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "app-api"
-version = "0.1.2"
+version = "0.1.4"
 description = ""
 license = "MIT"
 authors = ["Chinedu Ezeofor <sneidue@email.com>"]
@@ -11,7 +11,7 @@ python = "==3.10.8"
 datasets = "^2.14.4"
 ensure = "^1.0.3"
 fastapi = "^0.90.0"
-fast-token-classifier = ">= 0.2.6"
+fast-token-classifier = "==0.2.8"
 fsspec = "^2023.9.2"
 httpx = "^0.25.1"
 loguru = "^0.7.0"
