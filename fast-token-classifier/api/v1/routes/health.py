@@ -15,6 +15,7 @@ root_router: APIRouter = APIRouter()
 async def index() -> dict[str, Any]:
     """This is the index of the api."""
     return {
-        "message": f"{settings.PROJECT_NAME!r} app is working",
+        "message": f"{settings.PROJECT_NAME} app is working !!!",
+        "version": settings.API_FULL_VERSION,
         "status": "success!",
     }

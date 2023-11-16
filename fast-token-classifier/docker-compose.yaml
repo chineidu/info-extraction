@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  prediction:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: api_service:v2
+    container_name: pred_app
+    volumes:
+      - ../fast-token-classifier:/opt # Bind mount

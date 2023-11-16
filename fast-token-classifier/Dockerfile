@@ -7,7 +7,7 @@ RUN pip install --no-cache -U pip
 RUN pip install poetry==1.4.2
 
 # First copy & install requirements to speed up the build process in case only the code changes.
-COPY ["./pyproject.toml", "./poetry.lock", "./"]
+COPY ["./pyproject.toml", "./poetry.lock", "README.md", "./"]
 
 # Disable virtual environment creation
 RUN poetry install --no-interaction --no-root -vvv
