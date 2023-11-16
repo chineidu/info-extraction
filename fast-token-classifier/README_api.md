@@ -37,8 +37,12 @@ docker build -t api_service:v1 -f Dockerfile .
 - Create and run the docker containiner by running:
 
 ```sh
-export MODEL_DIR="/Users/neidu/Desktop/Projects/Personal/My_Projects/info-extraction/saved_model"
+export MODEL_DIR="${PWD}/saved_model"
 
+# Without bind mount
+docker run -it -p 8000:8005 --rm --name pred_app api_service:v1
+
+# With bind mount
 docker run -it -p 8000:8005 --rm \
-  -v ${MODEL_DIR}:/opt/saved_model:ro --name pred_app api_service:v2
+  -v ${MODEL_DIR}:/opt/saved_model:ro --name pred_app api_service:v1
 ```

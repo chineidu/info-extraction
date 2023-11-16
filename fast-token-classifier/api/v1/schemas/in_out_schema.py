@@ -5,6 +5,7 @@ class IndexSchema(BaseModel):
     """This is the schema for the index response."""
 
     message: str
+    version: str
     status: str
 
 

@@ -93,8 +93,7 @@ venv/
 */*/*/*.swp
 
 # Custom
-README.md
-readme.md
+saved_model/
 tests/
 .mypy_cache/
 .pytest_cache/
