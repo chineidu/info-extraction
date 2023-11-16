@@ -1,11 +1,18 @@
 [tool.poetry]
 name = "fast-token-classifier"
-version = "0.2.7"
+version = "1.0.0"
 description = ""
 license = "MIT"
 authors = ["Chinedu Ezeofor <sneidue@email.com>"]
 readme = "README.md"
-packages = [{include = "fast_token_classifier"}]
+packages = [
+        {include = "fast_token_classifier"},
+        { include = "api" },
+        ]
+classifiers = [
+    "Topic :: Software Development :: Language Model",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
 
 [tool.poetry.dependencies]
 python = "==3.10.8"
@@ -18,7 +25,6 @@ fsspec = "^2023.9.2"
 httpx = "^0.25.1"
 loguru = "^0.7.0"
 numpy = "^1.22.3"
-pre-commit = "^2.21.0"
 pydantic = "<=1.10.13"
 python-dotenv = "^1.0.0"
 rich = "^13.6.0"
@@ -33,6 +39,7 @@ uvicorn = "^0.24.0"
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.7.0"
 mypy-extensions = "^1.0.0"
+pre-commit = "^2.21.0"
 ruff = "^0.1.4"
 types-PyYAML = "^6.0.12.12"
 

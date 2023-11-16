@@ -6,12 +6,12 @@ from typeguard import typechecked
 
 from fast_token_classifier import get_rich_logger
 from fast_token_classifier.config import config
+from fast_token_classifier.config.core import LOCALLY_SAVED_MODEL
 
 logger = get_rich_logger()
 
 AGGREGATION_STRATEGY: str = config.model_config_schema.AGGREGATION_STRATEGY
 TASK: str = config.model_config_schema.TASK
-TRAINED_MODEL_CHECKPOINT: str = config.model_config_schema.TRAINED_MODEL_CHECKPOINT
 ModelInput: TypeAlias = Union[str, list[str]]
 Predictions: TypeAlias = Union[list[dict[str, Any]], list[list[dict[str, Any]]]]
 
@@ -22,7 +22,7 @@ def _load_model() -> Any:
     """This is used to load the NER language model."""
     NER_model: pipeline = pipeline(
         task=TASK,
-        model=TRAINED_MODEL_CHECKPOINT,
+        model=LOCALLY_SAVED_MODEL,
         aggregation_strategy=AGGREGATION_STRATEGY,
     )
     logger.info("Model successfully loaded!")

@@ -2,7 +2,7 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Any, Optional, Union
 
-import yaml
+import yaml  # type: ignore[import]
 from typeguard import typechecked
 
 # Custom Imports
@@ -16,10 +16,12 @@ from fast_token_classifier.config.schema import (
 
 logger = get_rich_logger()
 SRC_ROOT: Path = Path(fast_token_classifier.__file__).absolute().parent  # src/
-ROOT: Path = SRC_ROOT.parent  # proj/src
+ROOT: Path = SRC_ROOT.parent.parent  # proj/src
+P_ROOT: Path = SRC_ROOT.parent  # proj/src
 CONFIG_FILEPATH: Path = SRC_ROOT / "config/config.yaml"
 ENV_CONFIG_FILEPATH: Path = ROOT / ".env"
 DATA_FILEPATH: Path = ROOT / "data"
+LOCALLY_SAVED_MODEL: Path = P_ROOT / "saved_model/"
 
 
 @typechecked

@@ -1,7 +1,7 @@
 from pathlib import Path
 from typing import Any, Optional, Union
 
-import yaml
+import yaml  # type: ignore[import]
 from typeguard import typechecked
 
 # Custom Imports

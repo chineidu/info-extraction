@@ -36,7 +36,7 @@ def test_health_check(client: TestClient) -> None:
 
 # ==== `Mark` the test as an `integration test` ====
 @mark.integration
-def test_token_classification(client: TestClient, user_input_1: InputSchema) -> None:
+def test_token_classification(client: TestClient, payload_1: InputSchema) -> None:
     """This is used to test the predict endpoint."""
     # Given
     expected: dict[str, int] = {
@@ -75,7 +75,7 @@ def test_token_classification(client: TestClient, user_input_1: InputSchema) -> 
     URL: str = f"http://{HOST}:{PORT}/{API_VERSION_STR}/predict"
 
     # When
-    response = client.post(URL, json=user_input_1)
+    response = client.post(URL, json=payload_1)
     model_result: list[str, Any] = response.json().get("result")
 
     # Then
