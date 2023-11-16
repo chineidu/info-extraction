@@ -15,6 +15,4 @@ RUN poetry install --no-interaction --no-root -vvv
 # Copy the rest of the files.
 ADD ["./", "./"]
 
-
-# CMD ["uvicorn", "api.app:app", "--host", "0.0.0.0", "--port", "8005"]
 CMD ["poetry", "run", "uvicorn", "api.app:app", "--host", "0.0.0.0", "--port", "8005"]
