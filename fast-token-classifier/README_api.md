@@ -26,7 +26,12 @@ pip install -r requirements.txt
 - Build the docker image by running:
 
 ```sh
-docker build -t api_service:v2 -f Dockerfile .
+export MODEL_DIR="${PWD}/saved_model"
+export IMAGE_NAME="api_service"
+export TAG="v1"
+export APP_NAME="pred_app"
+
+docker build -t ${IMAGE_NAME}:${TAG} -f Dockerfile .
 ```
 
 - **Note**: The model has already been downloaded locally from the [HuggingFace hub](https://huggingface.co/chineidu/bert-finetuned-ner).
@@ -37,12 +42,10 @@ docker build -t api_service:v2 -f Dockerfile .
 - Create and run the docker containiner by running:
 
 ```sh
-export MODEL_DIR="${PWD}/saved_model"
-
 # Without bind mount
-docker run -it -p 8000:8005 --rm --name pred_app api_service:v2
+docker run -it -p 8000:8005 --rm --name ${APP_NAME} ${IMAGE_NAME}:${TAG}
 
 # With bind mount
 docker run -it -p 8000:8005 --rm \
-  -v ${MODEL_DIR}:/opt/saved_model:ro --name pred_app api_service:v2
+  -v ${MODEL_DIR}:/opt/saved_model:ro --name ${APP_NAME} ${IMAGE_NAME}:${TAG}
 ```
