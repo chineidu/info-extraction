@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-service # Name of service
+spec:
+  selector:
+    app: prediction-api # Select pods with the label 'app: prediction-api'
+  type: LoadBalancer
+  ports:
+    - port: 8005
+      targetPort: 8005
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prediction-api
+spec:
+  replicas: 3 # Number of desired replicas for high availability
+  selector:
+    matchLabels:
+      app: prediction-api # Select pods with the label 'app: prediction-api'
+  template:
+    metadata:
+      labels:
+        app: prediction-api # Label the pods with 'app: prediction-api'
+    spec:
+      containers:
+        - name: prediction-api
+          image: chineidu/api_service:v1 # Docker image for the application
+          imagePullPolicy: IfNotPresent # default
+          resources:
+            limits:
+              memory: "4Gi" # 4Gb
+              cpu: "2000m" # 2 cores
+          livenessProbe:
+            httpGet:
+              path: /health # Path to check
+              port: 8005 # The exposed port
+            periodSeconds: 10
+            initialDelaySeconds: 5
+          ports:
+            - containerPort: 8005 # Port on which the application listens
