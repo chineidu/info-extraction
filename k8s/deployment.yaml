@@ -27,17 +27,17 @@ spec:
     spec:
       containers:
         - name: prediction-api
-          image: chineidu/mlops:v3
+          image: chineidu/api_service:v1
           imagePullPolicy: IfNotPresent # default
           resources:
             limits:
-              memory: "256Mi"
-              cpu: "500m"
+              memory: "3Gi" # 3Gb
+              cpu: "3000m"  # 3 cores
           livenessProbe:
             httpGet:
-              path: /
-              port: 8000
+              path: /health
+              port: 8005
             periodSeconds: 10
             initialDelaySeconds: 5
           ports:
-            - containerPort: 8000
+            - containerPort: 8005
