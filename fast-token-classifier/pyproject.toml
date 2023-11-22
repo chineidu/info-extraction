@@ -6,7 +6,7 @@ license = "MIT"
 authors = ["Chinedu Ezeofor <sneidue@email.com>"]
 readme = "README.md"
 packages = [
-        {include = "fast_token_classifier"},
+        { include = "fast_token_classifier" },
         { include = "api" },
         ]
 classifiers = [
