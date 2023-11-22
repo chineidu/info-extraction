@@ -1,0 +1,5 @@
+# API CONFIG
+API_VERSION_STR: api/v1
+HOST: 0.0.0.0
+PORT: 8008
+PREFIX: predict

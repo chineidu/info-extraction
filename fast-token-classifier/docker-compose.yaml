@@ -11,6 +11,3 @@ services:
       - "8000:8005"
     volumes:
       - ./saved_model:/opt/saved_model # Mount the current directory to '/opt' w/in the container
-
-volumes:
-  model:
