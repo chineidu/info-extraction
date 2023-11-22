@@ -7,6 +7,7 @@ class FEConfigSchema(BaseModel):
     API_VERSION_STR: str
     HOST: str
     PORT: int
+    GRADIO_PORT: int
     PREFIX: str
 
 
