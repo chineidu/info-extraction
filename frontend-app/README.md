@@ -28,11 +28,10 @@ export IMAGE_NAME="app_ui_service"
 export TAG="v1"
 export APP_NAME="simple_app"
 export PORT="3008"
+export URL=http://pred_app:8005/api/v1/predict
 
 docker build -t ${IMAGE_NAME}:${TAG} -f Dockerfile .
 ```
-
-- **Note**: The model has already been downloaded locally from the [HuggingFace hub](https://huggingface.co/chineidu/bert-finetuned-ner).
 
 ### Create Container
 
@@ -40,6 +39,5 @@ docker build -t ${IMAGE_NAME}:${TAG} -f Dockerfile .
 - Create and run the docker containiner by running:
 
 ```sh
-# Without bind mount
-docker run -it -p ${PORT}:${PORT} --rm --name ${APP_NAME} ${IMAGE_NAME}:${TAG}
+docker run -it -p ${PORT}:${PORT} -e URL=${URL} --rm --name ${APP_NAME} ${IMAGE_NAME}:${TAG}
 ```

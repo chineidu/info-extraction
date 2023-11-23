@@ -1,13 +1,13 @@
+import os
 from typing import Any
 
 import gradio as gr
 import requests  # type: ignore
 from typeguard import typechecked
 
-from frontend.config import config
-
 # Custom
-from frontend.logger import get_rich_logger
+from frontend import get_rich_logger
+from frontend.config import config
 
 logger = get_rich_logger()
 
@@ -16,15 +16,18 @@ HOST: str = config.fe_config_schema.HOST
 PORT: int = config.fe_config_schema.PORT
 GRADIO_PORT: int = config.fe_config_schema.GRADIO_PORT
 PREFIX: str = config.fe_config_schema.PREFIX
-URL: str = f"http://{HOST}:{PORT}/{API_VERSION_STR}/{PREFIX}"
+url: str = f"http://{HOST}:{PORT}/{API_VERSION_STR}/{PREFIX}"
+
+# Environment variable
+URL: str = os.getenv("URL", url)
 
 
 @typechecked
 def translate(data: str) -> list[dict[str, Any]]:
     response = requests.post(URL, json={"data": data})
     result: list[dict[str, Any]] = response.json().get("result")
-    # logger.info(">>>> Request precessed! <<<<")
-    # logger.info(result)
+    logger.info(">>>> Request precessed! <<<<")
+    logger.info(result)
     return result
 
 
