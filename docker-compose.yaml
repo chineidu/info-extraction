@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  prediction:
+    build:
+      context: ./fast-token-classifier
+      dockerfile: Dockerfile
+    image: 'chineidu/api_service:v1'
+    container_name: pred_app
+    ports:
+      - '8000:8005'
+
+  frontend:
+    build:
+      context: ./app-frontend
+      dockerfile: Dockerfile
+    image: 'app_ui_service:v1'
+    container_name: ui_app
+    ports:
+      - '3008:3008'
+    depends_on:
+      - prediction
+
+    volumes:
+      - './fast-token-classifier/saved_model:/opt/saved_model'

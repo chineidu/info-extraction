@@ -1,10 +1,8 @@
-# API SERVICE
-
-This is the API for making predictions
+# Token Classifier UI
 
 ## Table of Content
 
-- [API SERVICE](#api-service)
+- [Token Classifier UI](#token-classifier-ui)
   - [Table of Content](#table-of-content)
   - [Setup](#setup)
   - [Docker Setup](#docker-setup)
@@ -26,10 +24,10 @@ poetry lock "--no-update" && poetry install --no-interaction
 - Build the docker image by running:
 
 ```sh
-export MODEL_DIR="${PWD}/saved_model"
-export IMAGE_NAME="api_service"
+export IMAGE_NAME="app_ui_service"
 export TAG="v1"
-export APP_NAME="pred_app"
+export APP_NAME="simple_app"
+export PORT="3008"
 
 docker build -t ${IMAGE_NAME}:${TAG} -f Dockerfile .
 ```
@@ -43,9 +41,5 @@ docker build -t ${IMAGE_NAME}:${TAG} -f Dockerfile .
 
 ```sh
 # Without bind mount
-docker run -it -p 8000:8005 --rm --name ${APP_NAME} ${IMAGE_NAME}:${TAG}
-
-# With bind mount
-docker run -it -p 8000:8005 --rm \
-  -v ${MODEL_DIR}:/opt/saved_model:ro --name ${APP_NAME} ${IMAGE_NAME}:${TAG}
+docker run -it -p ${PORT}:${PORT} --rm --name ${APP_NAME} ${IMAGE_NAME}:${TAG}
 ```

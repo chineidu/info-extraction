@@ -5,11 +5,11 @@ import yaml  # type: ignore[import]
 from typeguard import typechecked
 
 # Custom Imports
-import src
-from src.config.schema import ConfigVars, FEConfigSchema
-from src.logger import get_rich_logger
+import frontend
+from frontend.config.schema import ConfigVars, FEConfigSchema
+from frontend.logger import get_rich_logger
 
-SRC_ROOT: Path = Path(src.__file__).absolute().parent  # src/
+SRC_ROOT: Path = Path(frontend.__file__).absolute().parent  # src/
 ROOT: Path = SRC_ROOT.parent  # proj/src
 CONFIG_FILEPATH: Path = SRC_ROOT / "config/fe_config.yaml"
 

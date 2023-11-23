@@ -2,9 +2,12 @@ from typing import Any
 
 import gradio as gr
 import requests  # type: ignore
+from typeguard import typechecked
 
-from src import get_rich_logger
-from src.config import config
+from frontend.config import config
+
+# Custom
+from frontend.logger import get_rich_logger
 
 logger = get_rich_logger()
 
@@ -16,10 +19,12 @@ PREFIX: str = config.fe_config_schema.PREFIX
 URL: str = f"http://{HOST}:{PORT}/{API_VERSION_STR}/{PREFIX}"
 
 
-def translate(data: str) -> dict[str, Any]:
+@typechecked
+def translate(data: str) -> list[dict[str, Any]]:
     response = requests.post(URL, json={"data": data})
-    result: dict[str, Any] = response.json().get("result")
-    logger.info(">>>> Request precessed! <<<<")
+    result: list[dict[str, Any]] = response.json().get("result")
+    # logger.info(">>>> Request precessed! <<<<")
+    # logger.info(result)
     return result
 
 
